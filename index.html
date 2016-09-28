@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vierkant</title>
+    <link rel="stylesheet" href="./include/style.css">
+  </head>
+  <body>
+    <h2>vierkant</h2>
+	<h3>Robin de Groot klas GD1A</h3>
+	<canvas id="canvas" width="300" height="300"></canvas>
+	<script src="script.js"></script>
+    <script>
+    window.onload = function () {
+		  var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+		  vierkant = new Vierkant(); // instance 
+        
+		  (function drawFrame () {
+			 window.requestAnimationFrame(drawFrame, canvas);
+			 context.clearRect(0, 0, canvas.width, canvas.height);
+			 vierkant.xLeft = canvas.width / 2;
+			 vierkant.yLeft = canvas.height / 2;
+			 vierkant.draw(context);	
+		  }());
+    };
+	</script>
+  </body>
+</html>
